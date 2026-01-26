@@ -14,8 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-full bg-gray-50 antialiased">
-        {' '}
+      <body className="min-h-screen bg-neutral-50 px-10 py-8 antialiased">
         <Header />
         {children}
       </body>

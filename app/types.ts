@@ -1,1 +1,1 @@
-export type View = 'input' | 'plan';
+export type IconProps = React.SVGProps<SVGSVGElement>;
