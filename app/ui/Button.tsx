@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 type ButtonProps = {
@@ -8,12 +8,7 @@ type ButtonProps = {
   className?: string;
 };
 
-export default function Button({
-  children,
-  onClick,
-  href,
-  className,
-}: ButtonProps) {
+export function Button({ children, onClick, href, className }: ButtonProps) {
   const baseButtonStyles =
     'text-white border py-2.5 px-4 rounded-xl bg-gray-800 gap-2';
 

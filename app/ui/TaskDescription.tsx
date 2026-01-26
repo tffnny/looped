@@ -1,7 +1,7 @@
-import Card from '@/app/ui/Card';
-import Button from '@/app/ui/Button';
+import { Button } from '@/app/ui/Button';
+import { Card } from '@/app/ui/Card';
 
-export default function TaskDescription() {
+export function TaskDescription() {
   return (
     <Card title="Task Description">
       <div>Describe the task you want the robot to perform</div>

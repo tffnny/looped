@@ -4,7 +4,7 @@
  * Copyright 2026 Fonticons, Inc
  */
 
-export default function CircleNodesIcon() {
+export function CircleNodesIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

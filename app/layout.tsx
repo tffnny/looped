@@ -1,5 +1,7 @@
+import { ThemeProvider } from 'next-themes';
 import type { Metadata } from 'next';
-import Header from '@/app/ui/Header';
+import { ThemeToggle } from '@/app/ui/ThemeToggle';
+import { Header } from '@/app/ui/Header';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -13,10 +15,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-neutral-50 px-10 py-8 antialiased">
-        <Header />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* TODO: Use nav */}
+          <div className="flex w-full items-center justify-between">
+            <Header />
+            <ThemeToggle />
+          </div>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

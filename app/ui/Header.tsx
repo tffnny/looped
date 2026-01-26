@@ -1,10 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Button from '@/app/ui/Button';
-import CircleNodesIcon from '@/app/ui/icons/CircleNodesIcon';
+import { Button } from '@/app/ui/Button';
+import { CircleNodesIcon } from '@/app/ui/icons/CircleNodesIcon';
 
-export default function Header() {
+export function Header() {
   const pathname = usePathname();
   const currentView = pathname === '/plan' ? 'plan' : 'input';
 

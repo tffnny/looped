@@ -1,7 +1,7 @@
-import Card from '@/app/ui/Card';
-import Button from '@/app/ui/Button';
+import { Button } from '@/app/ui/Button';
+import { Card } from '@/app/ui/Card';
 
-export default function AssumptionsConstraints() {
+export function AssumptionsConstraints() {
   return (
     <Card title="Assumptions & Constraints">
       <div>Add contextual information to guide plan execution</div>
