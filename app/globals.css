@@ -1,34 +1,48 @@
 @import "tailwindcss";
 
-@theme {
-  --background: oklch(98.5% 0 0);
-  --foreground: oklch(27.8% 0.033 256.848);
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(98.5% 0.002 247.839);
+  --foreground: oklch(21% 0.034 264.665);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(21% 0.034 264.665);
+  --card-muted: oklch(0.493 0 0);
+  --input-background: oklch(0.970 0 0);
 }
 
 .dark {
-  --background: oklch(26.9% 0 0);
+  --background: oklch(21% 0.034 264.665);
   --foreground: oklch(98.5% 0.002 247.839);
+  --card: oklch(21% 0.034 264.665);
+  --card-foreground: oklch(98.5% 0.002 247.839);
+  --card-muted: oklch(0.493 0 0);
+  --input-background: oklch(0.970 0 0);
+
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-muted: var(--card-muted);
+  --color-input: var(--input-background);
+  --font-sans: var(--font-roboto);
+  --font-logo: var(--font-exo);
 }
 
 html, body {
   height: 100%;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 body {
   margin: 0;
-  padding: 2.5rem 2rem;
-  min-height: 100vh;
+  padding: 2.5rem 3rem;
   color: var(--foreground);
   background-color: var(--background);
-  font-size: 1rem;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/*@theme inline {*/
-/*  --color-background: var(--background);*/
-/*  --color-foreground: var(--foreground);*/
-/*  --font-sans: var(--font-geist-sans);*/
-/*  --font-mono: var(--font-geist-mono);*/
-/*}*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

@@ -10,12 +10,19 @@ export function Header() {
 
   return (
     <header>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-2">
         <CircleNodesIcon />
-        <h1 className="text-3xl font-bold">Looped</h1>
+        <div>
+          <h1 className="font-logo text-3xl font-bold">Looped</h1>
+          <p className="text-sm">Human-in-the-loop robot task planner</p>
+        </div>
       </div>
-      <p>Human-in-the-loop robot task planner</p>
-      {currentView === 'plan' && <Button href="/">Edit Task</Button>}
+
+      {currentView === 'plan' && (
+        <Button href="/" variant="secondary">
+          Edit Task
+        </Button>
+      )}
     </header>
   );
 }

@@ -7,7 +7,7 @@ import { LightModeIcon } from '@/app/ui/icons/LightModeIcon';
 import { DarkModeIcon } from '@/app/ui/icons/DarkModeIcon';
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   // useEffect only runs on the client,
@@ -33,7 +33,12 @@ export function ThemeToggle() {
   }
 
   return (
-    <Button onClick={toggleTheme} aria-label="Toggle theme">
+    <Button
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      variant="secondary"
+      size="icon"
+    >
       {resolvedTheme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
     </Button>
   );

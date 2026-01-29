@@ -7,14 +7,22 @@ import { SparklesIcon } from '@/app/ui/icons/SparklesIcon';
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="flex h-full flex-1 flex-col justify-between gap-7">
       <TaskDescription />
       <AssumptionsConstraints />
-      Looped will propose a plan. You&apos;ll review and refine it.
-      <Button href="/plan" className="flex items-center">
-        <SparklesIcon />
-        Generate Plan
-      </Button>
+      <div className="flex justify-between">
+        <p className="text-sm">
+          Looped will propose a plan. You&apos;ll review and refine it.
+        </p>
+        <Button
+          href="/plan"
+          className="flex items-center gap-2"
+          variant="primary"
+        >
+          <SparklesIcon />
+          Generate Plan
+        </Button>
+      </div>
     </main>
   );
 }
