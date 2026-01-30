@@ -13,6 +13,7 @@ type ButtonProps = {
   // Remove type if submit isn't used
   type?: 'button' | 'submit';
   ariaLabel?: string;
+  disabled?: boolean;
 };
 
 export function Button({
@@ -24,21 +25,24 @@ export function Button({
   size = 'md',
   type = 'button',
   ariaLabel,
+  disabled,
 }: ButtonProps) {
-  const baseStyles = 'rounded-lg cursor-pointer ';
+  const baseStyles = 'rounded-lg';
 
+  // bg-[#0B5CFF]
   // TODO: Remove variants no longer being used
   const variants = {
-    primary: 'bg-gray-800 text-white',
+    primary:
+      'bg-purple-700 text-white font-medium cursor-pointer hover:bg-purple-600',
     secondary:
-      'bg-white text-gray-800 border-gray-200 border-[1.5] rounded-lg hover:bg-gray-200 dark:bg-slate-700 dark:border-none dark:text-white',
-    ghost: 'bg-input',
-    disabled: 'bg-gray-300 text-white',
+      'bg-white text-purple-900 border-purple-300 border rounded-lg hover:bg-purple-900/[8%] dark:border-none dark:text-white cursor-pointer',
+    ghost: 'cursor-pointer',
+    disabled: 'cursor-not-allowed bg-gray-300',
   };
 
   const sizes = {
     sm: 'py-1.5 px-3',
-    md: 'py-2.5 px-4',
+    md: 'py-2.5 px-6',
     icon: 'p-2',
     label: 'px-2 py-1',
   };
@@ -68,6 +72,7 @@ export function Button({
       className={buttonStyles}
       type={type}
       aria-label={isIconBtn ? ariaLabel : 'undefined'}
+      disabled={disabled}
     >
       {children}
     </button>

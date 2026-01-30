@@ -11,17 +11,27 @@ const EXAMPLE_TASKS = [
   'Arrange the books by height',
 ] as const;
 
-export function TaskDescription() {
+type TaskDescriptionProps = {
+  taskDescription: string;
+  setTaskDescription: (taskDescription: string) => void;
+};
+
+export function TaskDescription({
+  taskDescription,
+  setTaskDescription,
+}: TaskDescriptionProps) {
   return (
     <Card>
       <fieldset>
         <legend className="text-lg font-semibold">Task Description</legend>
-        <label htmlFor="task-description" className="text-card-muted">
+        <label htmlFor="task-description" className="text-card-muted block">
           Describe what you want the robot to do in natural language
         </label>
         <TextArea
           id="task-description"
           className="my-3"
+          value={taskDescription}
+          onChange={(e) => setTaskDescription(e.target.value)}
           placeholder="Example: Pick up the red block and place it on the table"
           aria-describedby="task-description-help"
           rows={4}
@@ -35,6 +45,7 @@ export function TaskDescription() {
             <li key={example} className="shrink-0">
               <Button
                 className="text-sm font-medium"
+                onClick={() => setTaskDescription(example)}
                 variant="secondary"
                 size="sm"
               >

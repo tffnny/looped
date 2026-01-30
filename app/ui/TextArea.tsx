@@ -1,3 +1,4 @@
+import { KeyboardEvent, ChangeEventHandler } from 'react';
 import clsx from 'clsx';
 
 type InputProps = {
@@ -6,6 +7,9 @@ type InputProps = {
   className?: string;
   size?: 'lg';
   rows?: number;
+  value?: string;
+  onChange?: ChangeEventHandler<HTMLTextAreaElement>;
+  onKeyDown?: (event: KeyboardEvent<HTMLTextAreaElement>) => void;
 };
 
 export function TextArea({
@@ -14,9 +18,12 @@ export function TextArea({
   className,
   size = 'lg',
   rows,
+  value,
+  onChange,
+  onKeyDown,
 }: InputProps) {
   const baseStyles =
-    'rounded-lg bg-input px-3 py-2 border border-transparent focus:ring resize-none';
+    'rounded-lg bg-purple-200 px-3 py-2 border-0 focus:ring-2 focus:ring-purple-700 focus:outline-none resize-none';
 
   const sizes = {
     lg: 'w-full',
@@ -31,6 +38,9 @@ export function TextArea({
       className={buttonStyles}
       placeholder={placeholder}
       rows={rows}
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 }
