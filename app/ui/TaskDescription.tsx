@@ -6,7 +6,7 @@ const EXAMPLE_TASKS = [
   'Pick up the red block and place it on the table',
   'Bring me a cup of water',
   'Sort the items into bins by color',
-  'Grab a Kleenex box and put it on the dinner table',
+  'Grab a tissue box and put it on the dinner table',
   'Organize the dishes by type',
   'Arrange the books by height',
 ] as const;

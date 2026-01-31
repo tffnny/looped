@@ -3,13 +3,15 @@
 import { usePathname } from 'next/navigation';
 import { Button } from '@/app/ui/Button';
 import { CircleNodesIcon } from '@/app/ui/icons/CircleNodesIcon';
+import { ThemeToggle } from '@/app/ui/ThemeToggle';
+import { LeftArrow } from '@/app/ui/icons/LeftArrow';
 
 export function Header() {
   const pathname = usePathname();
   const currentView = pathname === '/plan' ? 'plan' : 'input';
 
   return (
-    <header>
+    <header className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         <CircleNodesIcon />
         <div>
@@ -17,12 +19,17 @@ export function Header() {
           <p className="text-sm">Human-in-the-loop robot task planner</p>
         </div>
       </div>
-
-      {currentView === 'plan' && (
-        <Button href="/" variant="secondary">
-          Edit Task
-        </Button>
-      )}
+      <div className="flex items-center">
+        {currentView === 'plan' && (
+          <Button href="/" variant="tertiary" className="hover:bg-purple-900/8">
+            <div className="flex items-center gap-2">
+              <LeftArrow />
+              Edit Task
+            </div>
+          </Button>
+        )}
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

@@ -7,8 +7,8 @@ type ButtonProps = {
   onClick?: () => void;
   href?: string;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'disabled';
-  size?: 'sm' | 'md' | 'icon' | 'label';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled';
+  size?: 'xs' | 'sm' | 'md' | 'icon' | 'label';
   // TODO: submit type probably won't be used in this project, check back later
   // Remove type if submit isn't used
   type?: 'button' | 'submit';
@@ -36,12 +36,14 @@ export function Button({
       'bg-purple-700 text-white font-medium cursor-pointer hover:bg-purple-600',
     secondary:
       'bg-white text-purple-900 border-purple-300 border rounded-lg hover:bg-purple-900/[8%] dark:border-none dark:text-white cursor-pointer',
+    tertiary: 'cursor-pointer',
     ghost: 'cursor-pointer',
     disabled: 'cursor-not-allowed bg-gray-300',
   };
 
   const sizes = {
-    sm: 'py-1.5 px-3',
+    xs: 'p-1',
+    sm: 'py-2 px-3.5',
     md: 'py-2.5 px-6',
     icon: 'p-2',
     label: 'px-2 py-1',

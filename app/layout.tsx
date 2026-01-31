@@ -1,13 +1,6 @@
 import { ThemeProvider } from 'next-themes';
+import { Exo, Roboto } from 'next/font/google';
 import type { Metadata } from 'next';
-import {
-  DM_Serif_Display,
-  DM_Serif_Text,
-  Exo,
-  Exo_2,
-  Roboto,
-  Roboto_Slab,
-} from 'next/font/google';
 import { ThemeToggle } from '@/app/ui/ThemeToggle';
 import { Header } from '@/app/ui/Header';
 import '@/app/globals.css';
@@ -41,10 +34,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col gap-5 overflow-y-auto antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* TODO: Use nav */}
-          <div className="flex w-full items-center justify-between">
-            <Header />
-            <ThemeToggle />
-          </div>
+          <Header />
           <div className="pb-12">{children}</div>
         </ThemeProvider>
       </body>

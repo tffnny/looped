@@ -47,12 +47,13 @@
   --color-purple-600: var(--purple-primary-hover); /* #6750a4 */
   --color-purple-700: var(--purple-primary);
   --color-purple-800: var(--purple-icon-hover); /* #322f35 */
-  --color-purple-900: var(--purple-text);
+  --color-purple-900: var(--purple-text); /* #49454f */
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card-muted: var(--card-muted);
   --color-input: var(--input-background);
+  --color-success: var(--green);
   --font-sans: var(--font-roboto);
   --font-logo: var(--font-exo);
 }

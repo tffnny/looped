@@ -69,9 +69,9 @@ export function AssumptionsConstraints({
             onKeyDown={handleKeyDown}
           />
           <Button
+            className="px-2"
             onClick={handleAddAssumption}
             variant="secondary"
-            size="icon"
             ariaLabel="Add assumption or constraint"
           >
             <PlusIcon />
