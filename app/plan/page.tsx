@@ -46,7 +46,7 @@ export default function Page() {
             <Button
               className="flex items-center gap-2"
               variant="secondary"
-              size="sm"
+              size="xs"
             >
               <AlertIcon />
               Critique Plan
@@ -54,7 +54,7 @@ export default function Page() {
             <Button
               className="flex items-center gap-2"
               variant="secondary"
-              size="sm" // TODO: Make icon button styles automatically center
+              size="xs" // TODO: Make icon button styles automatically center
             >
               <RefreshIcon />
               Regenerate Plan

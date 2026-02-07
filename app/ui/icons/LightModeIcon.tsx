@@ -1,6 +1,7 @@
 export function LightModeIcon() {
   return (
     <svg
+      className="group-hover:fill-on-surface-var"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="1.25em"

@@ -1,6 +1,6 @@
-import { Button } from '@/app/ui/Button';
 import { Card } from '@/app/ui/Card';
 import { TextArea } from '@/app/ui/TextArea';
+import { Chip } from '@/app/ui/Chip';
 
 const EXAMPLE_TASKS = [
   'Pick up the red block and place it on the table',
@@ -24,7 +24,7 @@ export function TaskDescription({
     <Card>
       <fieldset>
         <legend className="text-lg font-semibold">Task Description</legend>
-        <label htmlFor="task-description" className="text-card-muted block">
+        <label htmlFor="task-description" className="block">
           Describe what you want the robot to do in natural language
         </label>
         <TextArea
@@ -43,14 +43,13 @@ export function TaskDescription({
         <ul className="scroll scrollbar-hide flex max-w-full flex-nowrap gap-3 overflow-x-auto">
           {EXAMPLE_TASKS.map((example) => (
             <li key={example} className="shrink-0">
-              <Button
-                className="text-sm font-medium"
+              <Chip
+                className="px-4 py-2 text-sm font-medium"
                 onClick={() => setTaskDescription(example)}
-                variant="secondary"
-                size="sm"
+                variant="assist"
               >
                 {example}
-              </Button>
+              </Chip>
             </li>
           ))}
         </ul>

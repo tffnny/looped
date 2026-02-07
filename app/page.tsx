@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import AssumptionsConstraints from '@/app/ui/AssumptionsConstraints';
 import { TaskDescription } from '@/app/ui/TaskDescription';
-import { AssumptionsConstraints } from '@/app/ui/AssumptionsConstraints';
 import { Button } from '@/app/ui/Button';
 import { SparklesIcon } from '@/app/ui/icons/SparklesIcon';
 
@@ -62,12 +62,12 @@ export default function Home() {
         assumptions={assumptions}
         setAssumptions={setAssumptions}
       />
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <p>Looped will propose a plan. You&apos;ll review and refine it.</p>
         <Button
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 px-6 py-2.5"
           onClick={handleGeneratePlan}
-          variant={!taskDescription.trim() ? 'disabled' : 'primary'}
+          variant="primary"
           disabled={!taskDescription.trim()}
         >
           <SparklesIcon />

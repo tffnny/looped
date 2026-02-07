@@ -15,8 +15,10 @@ export function Header() {
       <div className="flex items-center gap-2">
         <CircleNodesIcon />
         <div>
-          <h1 className="font-logo text-3xl font-bold">Looped</h1>
-          <p className="text-sm">Human-in-the-loop robot task planner</p>
+          <h1 className="font-logo text-3xl font-bold ">Looped</h1>
+          <p className="text-md-outline text-sm">
+            Human-in-the-loop robot task planner
+          </p>
         </div>
       </div>
       <div className="flex items-center">

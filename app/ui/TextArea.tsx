@@ -23,7 +23,9 @@ export function TextArea({
   onKeyDown,
 }: InputProps) {
   const baseStyles =
-    'rounded-lg bg-purple-200 px-3 py-2 border-0 focus:ring-2 focus:ring-purple-700 focus:outline-none resize-none';
+    'rounded-lg px-4 py-3 border border-md-outline resize-none placeholder:text-on-surface-var' +
+    'focus:ring focus:ring-2 focus:ring-md-primary focus:outline-none ' +
+    'hover:border-on-surface';
 
   const sizes = {
     lg: 'w-full',

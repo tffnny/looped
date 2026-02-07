@@ -7,8 +7,8 @@ type ButtonProps = {
   onClick?: () => void;
   href?: string;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'disabled';
-  size?: 'xs' | 'sm' | 'md' | 'icon' | 'label';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'icon';
+  size?: 'xs' | 'icon' | 'label' | 'none'; // TODO: 'none' is temporary
   // TODO: submit type probably won't be used in this project, check back later
   // Remove type if submit isn't used
   type?: 'button' | 'submit';
@@ -22,36 +22,48 @@ export function Button({
   href,
   className,
   variant = 'primary',
-  size = 'md',
+  size = 'icon',
   type = 'button',
   ariaLabel,
   disabled,
 }: ButtonProps) {
-  const baseStyles = 'rounded-lg';
+  const baseStyles = 'relative rounded-lg';
 
-  // bg-[#0B5CFF]
   // TODO: Remove variants no longer being used
   const variants = {
     primary:
-      'bg-purple-700 text-white font-medium cursor-pointer hover:bg-purple-600',
+      'bg-md-primary text-md-on-primary font-medium cursor-pointer ' +
+      'before:absolute before:inset-0 before:bg-md-on-primary before:opacity-0 ' +
+      'hover:before:opacity-[0.08]',
     secondary:
-      'bg-white text-purple-900 border-purple-300 border rounded-lg hover:bg-purple-900/[8%] dark:border-none dark:text-white cursor-pointer',
+      'cursor-pointer bg-md-secondary',
     tertiary: 'cursor-pointer',
     ghost: 'cursor-pointer',
-    disabled: 'cursor-not-allowed bg-gray-300',
+    icon:
+      'border border-md-outline-var ' +
+      'before:absolute before:inset-0 before:bg-on-surface-var before:opacity-0 ' +
+      'hover:before:opacity-[0.08]',
+  };
+
+  const disabledStyles = {
+    primary:
+      'font-medium cursor-not-allowed bg-on-surface/10 text-on-surface/38',
+    secondary: 'cursor-not-allowed',
+    tertiary: 'cursor-not-allowed',
+    ghost: 'cursor-not-allowed',
+    icon: 'cursor-not-allowed',
   };
 
   const sizes = {
     xs: 'p-1',
-    sm: 'py-2 px-3.5',
-    md: 'py-2.5 px-6',
     icon: 'p-2',
     label: 'px-2 py-1',
+    none: '',
   };
 
   const buttonStyles = clsx(
     baseStyles,
-    variants[variant],
+    disabled ? disabledStyles[variant] : variants[variant],
     sizes[size],
     className,
   );

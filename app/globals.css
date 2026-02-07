@@ -3,57 +3,65 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: oklch(98.5% 0.002 247.839);
-  --foreground: oklch(23% 0.01 303.71);
-  --card-foreground: oklch(21% 0.034 264.665);
-  --card-muted: oklch(0.493 0 0);
-  --input-background: oklch(0.970 0 0);
-  --purple-border: oklch(0.829 0.018 308.22);
-  --purple-primary: oklch(0.496 0.131 293.71);
-  --purple-primary-hover: oklch(0.496 0.131 293.71);
-  --purple-text: oklch(0.398 0.017 303.72);
-  --purple-icon-hover: oklch(0.311 0.011 308.06);
-  --purple-icon-content: oklch(0.959 0.012 317.74);
-  --purple-input-background: oklch(0.914 0.014 314.75);
-  --purple-label-background: oklch(0.916 0.04 303.11);
-  --green: oklch(0.6122 0.151 154.1);
+  --surface: #FEF7FF;
+  --on-surface: #1D1B20;
+  --on-surface-variant: #49454F;
+  --surface-container: #F3EDF7;
+  --outline: #79747E;
+  --outline-variant: #CAC4D0;
+  --primary: #6750A4;
+  --on-primary: #FFFFFF;
+  --primary-container: #EADDFF;
+  --on-primary-container: #4F378B;
+  --secondary: #625B71;
+  --on-secondary: #FFFFFF;
+  --secondary-container: #E8DEF8;
+  --on-secondary-container: #4A4458;
+  --tertiary: #7D5260;
+  --on-tertiary: #FFFFFF;
+  --tertiary-container: #FFD8E4;
+  --on-tertiary-container: #633B48;
 }
 
 .dark {
-  --background: oklch(23% 0.01 303.71);
-  --foreground: oklch(98.5% 0.002 247.839);
-  --card: oklch(21% 0.034 264.665);
-  --card-foreground: oklch(98.5% 0.002 247.839);
-  --card-muted: oklch(0.493 0 0);
-  --input-background: oklch(0.970 0 0);
-  --purple-border: oklch(0.829 0.018 308.22);
-  --purple-primary: oklch(0.496 0.131 293.71);
-  --purple-primary-hover: oklch(0.496 0.131 293.71);
-  --purple-text: oklch(0.398 0.017 303.72);
-  --purple-icon-hover: oklch(0.311 0.011 308.06);
-  --purple-icon-content: oklch(0.959 0.012 317.74);
-  --purple-input-background: oklch(0.914 0.014 314.75);
-  --purple-label-background: oklch(0.916 0.04 303.11);
-  --green: oklch(0.6122 0.151 154.1);
+  --surface: #141218;
+  --on-surface: #E6E0E9;
+  --on-surface-variant: #CAC4D0;
+  --surface-container: #211F26;
+  --outline: #938F99;
+  --outline-variant: #49454F;
+  --primary: #D0BCFF;
+  --on-primary: #381E72;
+  --primary-container: #4F378B;
+  --on-primary-container: #EADDFF;
+  --secondary: #CCC2DC;
+  --on-secondary: #332D41;
+  --secondary-container: #4A4458;
+  --on-secondary-container: #E8DEF8;
+  --tertiary: #EFB8C8;
+  --on-tertiary: #492532;
+  --tertiary-container: #633B48;
+  --on-tertiary-container: #FFD8E4;
 }
 
 @theme inline {
-  /* Override TailwindCSS's purple colors */
-  --color-purple-*: initial;
-  --color-purple-50: var(--purple-icon-content); /* # e8def8 */
-  --color-purple-100: var(--purple-icon-content); /* #f5eff7 */
-  --color-purple-200: var(--purple-input-background); /* e6e0e9 */
-  --color-purple-300: var(--purple-border); /* #cac4d0 */
-  --color-purple-600: var(--purple-primary-hover); /* #6750a4 */
-  --color-purple-700: var(--purple-primary);
-  --color-purple-800: var(--purple-icon-hover); /* #322f35 */
-  --color-purple-900: var(--purple-text); /* #49454f */
+  --color-surface: var(--surface);
+  --color-surface-ctnr: var(--surface-container);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-var: var(--on-surface-variant);
+  --color-md-primary: var(--primary);
+  --color-md-on-primary: var(--on-primary);
+  --color-md-secondary: var(--secondary);
+  --color-md-on-secondary: var(--on-secondary);
+  --color-md-secondary-ctnr: var(--secondary-container);
+  --color-md-on-secondary-ctnr: var(--on-secondary-container);
+  --color-md-tertiary: var(--tertiary);
+  --color-md-on-tertiary: var(--on-tertiary);
+  --color-md-tertiary-ctnr: var(--tertiary-container);
+  --color-md-on-tertiary-ctnr: var(--on-tertiary-container);
+  --color-md-outline: var(--outline);
+  --color-md-outline-var: var(--outline-variant);
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card-muted: var(--card-muted);
-  --color-input: var(--input-background);
-  --color-success: var(--green);
   --font-sans: var(--font-roboto);
   --font-logo: var(--font-exo);
 }
@@ -66,8 +74,9 @@ html, body {
 body {
   margin: 0;
   padding: 2.5rem 4rem;
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--on-surface);
+  background-color: var(--surface);
+  box-sizing: border-box;
 }
 
 .scrollbar-hide::-webkit-scrollbar {

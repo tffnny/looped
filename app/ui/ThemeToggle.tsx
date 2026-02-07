@@ -34,10 +34,10 @@ export function ThemeToggle() {
 
   return (
     <Button
-      className="border border-purple-300 hover:bg-purple-800"
+      className="group"
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      variant="ghost"
+      variant="icon"
       size="icon"
     >
       {resolvedTheme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
