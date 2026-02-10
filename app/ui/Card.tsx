@@ -4,19 +4,30 @@ import clsx from 'clsx';
 type CardProps = {
   children: ReactNode;
   className?: string;
-  variant?: 'primary' | 'caution' | 'placeholder';
+  variant?: 'primary' | 'secondary' | 'caution' | 'placeholder';
 };
 
-export function Card({ children, className, variant = 'primary', ...props }: CardProps) {
+export function Card({
+  children,
+  className,
+  variant = 'primary',
+  ...props
+}: CardProps) {
   const baseStyles = 'h-auto rounded-lg px-7 py-6';
 
   const variants = {
-    primary: 'border border-md-outline-var bg-surface-ctnr',
+    primary: 'border border-md-outline-var bg-white',
+    secondary: 'bg-surface-ctnr-high',
     caution: 'border-2 border-yellow-300 bg-yellow-50',
-    placeholder: 'text-center text-sm border-2 border-dashed border-md-outline-var',
+    placeholder:
+      'text-center text-sm border-2 border-dashed border-md-outline-var',
   };
 
   const cardStyles = clsx(baseStyles, variants[variant], className);
 
-  return <div className={cardStyles} {...props}>{children}</div>;
+  return (
+    <div className={cardStyles} {...props}>
+      {children}
+    </div>
+  );
 }

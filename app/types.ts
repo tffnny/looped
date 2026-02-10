@@ -1,1 +1,5 @@
-export type IconProps = React.SVGProps<SVGSVGElement>;
+export type Steps = {
+  Instruction: string;
+  Ambiguity?: string;
+  Assumption?: string;
+};

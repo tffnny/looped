@@ -32,11 +32,10 @@ export function Button({
   // TODO: Remove variants no longer being used
   const variants = {
     primary:
-      'bg-md-primary text-md-on-primary font-medium cursor-pointer ' +
+      'bg-md-primary text-md-on-primary cursor-pointer ' +
       'before:absolute before:inset-0 before:bg-md-on-primary before:opacity-0 ' +
       'hover:before:opacity-[0.08]',
-    secondary:
-      'cursor-pointer bg-md-secondary',
+    secondary: 'cursor-pointer bg-md-secondary',
     tertiary: 'cursor-pointer',
     ghost: 'cursor-pointer',
     icon:

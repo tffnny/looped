@@ -13,10 +13,12 @@ export function Header() {
   return (
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <CircleNodesIcon />
+        <div className="bg-md-primary rounded-lg p-2">
+          <CircleNodesIcon />
+        </div>
         <div>
-          <h1 className="font-logo text-3xl font-bold ">Looped</h1>
-          <p className="text-md-outline text-sm">
+          <h1 className="font-logo text-2xl font-bold">Looped</h1>
+          <p className="text-md-outline text-xs uppercase">
             Human-in-the-loop robot task planner
           </p>
         </div>

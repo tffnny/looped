@@ -1,56 +1,161 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --surface: #FEF7FF;
-  --on-surface: #1D1B20;
-  --on-surface-variant: #49454F;
-  --surface-container: #F3EDF7;
-  --outline: #79747E;
-  --outline-variant: #CAC4D0;
-  --primary: #6750A4;
+  --surface: #F8F9FA;                /* Light cool-neutral background */
+  --on-surface: #1A1C1E;             /* High contrast charcoal text */
+  --on-surface-variant: #43474E;     /* Muted secondary text */
+  --surface-container: #FFFFFF;      /* Step card background */
+  --surface-container-high: #F0F2F5;   /* Sidebar / Background for cards */
+  --outline: #73777F;                /* Muted borders */
+  --outline-variant: #C3C6CF;        /* Divider lines */
+
+  --primary: #0061A4;                /* Deep Robotics Blue (Execute) */
   --on-primary: #FFFFFF;
-  --primary-container: #EADDFF;
-  --on-primary-container: #4F378B;
-  --secondary: #625B71;
+  --primary-container: #D1E4FF;      /* Light blue for active states */
+  --on-primary-container: #001D36;
+
+  --secondary: #535F70;              /* Slate gray-blue */
   --on-secondary: #FFFFFF;
-  --secondary-container: #E8DEF8;
-  --on-secondary-container: #4A4458;
-  --tertiary: #7D5260;
+  --secondary-container: #D7E3F7;    /* For secondary metadata like 'Vision' */
+  --on-secondary-container: #101C2B;
+
+  --tertiary: #6B5778;               /* Muted indigo-gray */
   --on-tertiary: #FFFFFF;
-  --tertiary-container: #FFD8E4;
-  --on-tertiary-container: #633B48;
+  --tertiary-container: #F2DAFF;
+  --on-tertiary-container: #251431;
+
+    /* Step Categories - Muted Technical Accents */
+    --vision-chip: #eaddff; /* Muted Violet */
+    --on-vision: #21005d;
+    --motion-chip: #c9f0ed; /* Muted Teal */
+    --on-motion: #00201e;
+    --actuate-chip: #ffdcc0; /* Muted Orange */
+    --on-actuate: #2d1600;
+
+    /* System States */
+    --success: #1b5e20; /* 'No issues found' icon color */
+    --success-container: #e8f5e9; /* 'No issues found' background */
+    --error: #ba1a1a;
+    --error-container: #ffdad6;
 }
 
 .dark {
-  --surface: #141218;
-  --on-surface: #E6E0E9;
-  --on-surface-variant: #CAC4D0;
-  --surface-container: #211F26;
-  --outline: #938F99;
-  --outline-variant: #49454F;
-  --primary: #D0BCFF;
-  --on-primary: #381E72;
-  --primary-container: #4F378B;
-  --on-primary-container: #EADDFF;
-  --secondary: #CCC2DC;
-  --on-secondary: #332D41;
-  --secondary-container: #4A4458;
-  --on-secondary-container: #E8DEF8;
-  --tertiary: #EFB8C8;
-  --on-tertiary: #492532;
-  --tertiary-container: #633B48;
-  --on-tertiary-container: #FFD8E4;
+  --surface: #1A1C1E;                /* Deep slate background */
+  --on-surface: #E2E2E6;             /* Off-white text */
+  --on-surface-variant: #C3C6CF;     /* Muted metadata */
+  --surface-container: #222529;      /* Dark card backgrounds */
+  --surface-container-high: #2A2D32;   /* Dark sidebar background */
+  --outline: #8D9199;
+  --outline-variant: #43474E;
+
+  --primary: #A0C9FF;                /* Softer blue for dark mode */
+  --on-primary: #003258;
+  --primary-container: #00497D;
+  --on-primary-container: #D1E4FF;
+
+  --secondary: #BBD1EB;
+  --on-secondary: #253141;
+  --secondary-container: #3B4858;
+  --on-secondary-container: #D7E3F7;
+
+  --tertiary: #D7BEE4;
+  --on-tertiary: #3B2948;
+  --tertiary-container: #523F5F;
+  --on-tertiary-container: #F2DAFF;
+
+    /* Step Categories - Adjusted Contrast for Dark Mode */
+    --vision-chip: #4f378b;
+    --on-vision: #eaddff;
+    --motion-chip: #00504b;
+    --on-motion: #c9f0ed;
+    --actuate-chip: #723600;
+    --on-actuate: #ffdcc0;
+
+    /* System States */
+    --success: #81c784;
+    --success-container: #00390a;
+    --error: #ffb4ab;
+    --error-container: #93000a;
 }
+
+/*!* Looped Robot Task Planner - Neutral MD3 Palette *!*/
+/*:root {*/
+/*  !* LIGHT THEME - Focus on legibility and reduced eye strain *!*/
+/*  --surface: #f8f9fa; !* Neutral-cool background *!*/
+/*  --on-surface: #1b1b1f; !* Primary deep text (WCAG AAA) *!*/
+/*  --on-surface-variant: #44474e; !* Secondary metadata text *!*/
+/*  --surface-container: #ffffff; !* Pure white for Step Cards *!*/
+/*  --surface-container-high: #f0f2f5; !* Sidebar background *!*/
+
+/*  --outline: #74777f; !* Muted borders *!*/
+/*  --outline-variant: #c4c6d0; !* Light dividers and separators *!*/
+
+/*  !* Primary Branding - Robotics Blue *!*/
+/*  --primary: #0061a4;*/
+/*  --on-primary: #ffffff;*/
+/*  --primary-container: #d1e4ff;*/
+/*  --on-primary-container: #001d36;*/
+
+/*  !* Step Categories - Muted Technical Accents *!*/
+/*  --vision-chip: #eaddff; !* Muted Violet *!*/
+/*  --on-vision: #21005d;*/
+/*  --motion-chip: #c9f0ed; !* Muted Teal *!*/
+/*  --on-motion: #00201e;*/
+/*  --actuate-chip: #ffdcc0; !* Muted Orange *!*/
+/*  --on-actuate: #2d1600;*/
+
+/*  !* System States *!*/
+/*  --success: #1b5e20; !* 'No issues found' icon color *!*/
+/*  --success-container: #e8f5e9; !* 'No issues found' background *!*/
+/*  --error: #ba1a1a;*/
+/*  --error-container: #ffdad6;*/
+/*}*/
+
+/*.dark {*/
+/*  !* DARK THEME - Optimized for low-light lab environments *!*/
+/*  --surface: #1a1c1e; !* Deep slate background *!*/
+/*  --on-surface: #e2e2e6; !* Crisp off-white text *!*/
+/*  --on-surface-variant: #c4c6d0; !* Muted grey metadata *!*/
+/*  --surface-container: #222529; !* Dark grey for cards *!*/
+/*  --surface-container-high: #2a2d31; !* Darker sidebar *!*/
+
+/*  --outline: #8e9199;*/
+/*  --outline-variant: #44474e;*/
+
+/*  !* Primary Branding - Muted for Dark Mode *!*/
+/*  --primary: #a0c9ff;*/
+/*  --on-primary: #003258;*/
+/*  --primary-container: #00497d;*/
+/*  --on-primary-container: #d1e4ff;*/
+
+/*  !* Step Categories - Adjusted Contrast for Dark Mode *!*/
+/*  --vision-chip: #4f378b;*/
+/*  --on-vision: #eaddff;*/
+/*  --motion-chip: #00504b;*/
+/*  --on-motion: #c9f0ed;*/
+/*  --actuate-chip: #723600;*/
+/*  --on-actuate: #ffdcc0;*/
+
+/*  !* System States *!*/
+/*  --success: #81c784;*/
+/*  --success-container: #00390a;*/
+/*  --error: #ffb4ab;*/
+/*  --error-container: #93000a;*/
+/*}*/
+
 
 @theme inline {
   --color-surface: var(--surface);
   --color-surface-ctnr: var(--surface-container);
+  --color-surface-ctnr-high: var(--surface-container-high);
   --color-on-surface: var(--on-surface);
   --color-on-surface-var: var(--on-surface-variant);
   --color-md-primary: var(--primary);
   --color-md-on-primary: var(--on-primary);
+  --color-md-primary-ctnr: var(--primary-container);
+  --color-md-on-primary-ctnr: var(--on-primary-container);
   --color-md-secondary: var(--secondary);
   --color-md-on-secondary: var(--on-secondary);
   --color-md-secondary-ctnr: var(--secondary-container);
@@ -61,19 +166,22 @@
   --color-md-on-tertiary-ctnr: var(--on-tertiary-container);
   --color-md-outline: var(--outline);
   --color-md-outline-var: var(--outline-variant);
+  --color-success: var(--success);
+  --color-success-ctnr: var(--success-container);
 
   --font-sans: var(--font-roboto);
   --font-logo: var(--font-exo);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
 body {
   margin: 0;
-  padding: 2.5rem 4rem;
+  padding: 1.2rem 2rem;
   color: var(--on-surface);
   background-color: var(--surface);
   box-sizing: border-box;

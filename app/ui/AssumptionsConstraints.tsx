@@ -7,6 +7,7 @@ import { PlusIcon } from '@/app/ui/icons/PlusIcon';
 import { TextArea } from '@/app/ui/TextArea';
 import { CloseIcon } from '@/app/ui/icons/CloseIcon';
 import { Chip } from '@/app/ui/Chip';
+import { SliderIcon } from '@/app/ui/icons/SliderIcon';
 
 type AssumptionsConstraintsProps = {
   assumptions: string[];
@@ -45,26 +46,23 @@ function AssumptionsConstraints({
     <Card>
       <fieldset>
         <div className="flex items-center gap-2">
-          <legend className="text-lg font-semibold">
+          <SliderIcon />
+          <legend className="text-md-primary text-lg font-semibold">
             Assumptions & Constraints
           </legend>
           <span className="bg-md-tertiary-ctnr text-md-on-tertiary-ctnr rounded-lg px-2 py-1 text-xs font-medium">
             Optional
           </span>
         </div>
-        <p id="assumptions-description" className="block">
-          Add contextual information to guide plan execution
-        </p>
         <div className="my-3 flex items-stretch gap-2.5">
           <TextArea
             id="assumptions-input"
-            placeholder="e.g., Table is within reach"
+            placeholder="Add assumptions and constraints (e.g., The table is within reach)"
             rows={1}
             size="lg"
             value={newAssumption}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            aria-describedby="assumptions-description"
           />
           <Button
             className="px-4"
@@ -76,7 +74,7 @@ function AssumptionsConstraints({
           </Button>
         </div>
         {assumptions.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex max-h-28 flex-wrap gap-2 overflow-y-auto">
             {assumptions.map((assumption: string, index: number) => (
               <Chip key={index} variant="input" className="py-2 pl-3">
                 <span>{assumption}</span>
@@ -97,7 +95,9 @@ function AssumptionsConstraints({
             <div className="text-md-outline font-medium">
               No assumptions added yet
             </div>
-            <div className="text-md-outline">Add assumptions to provide additional context</div>
+            <div className="text-md-outline">
+              Add assumptions to provide additional context
+            </div>
           </Card>
         )}
       </fieldset>

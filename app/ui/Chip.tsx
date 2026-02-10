@@ -8,13 +8,18 @@ type ChipProps = {
   onClick?: () => void;
 };
 
-export function Chip({ children, className, variant = 'input', onClick }: ChipProps) {
+export function Chip({
+  children,
+  className,
+  variant = 'input',
+  onClick,
+}: ChipProps) {
   const baseStyles =
     'relative rounded-lg flex items-center justify-between font-medium';
 
   const variants = {
     assist:
-      'cursor-pointer border border-md-outline text-on-surface-var bg-surface ' +
+      'cursor-pointer border border-md-outline text-on-surface-var bg-none ' +
       'before:absolute before:inset-0 before:bg-on-surface-var before:opacity-0 ' +
       'hover:before:opacity-[0.08]',
     input:

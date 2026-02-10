@@ -10,7 +10,6 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 ---
 
-
 The MIT License (MIT) (for portions derived from Feather)
 
 Copyright (c) 2013-2026 Cole Bemis
