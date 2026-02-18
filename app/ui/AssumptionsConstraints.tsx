@@ -3,7 +3,7 @@
 import { KeyboardEvent, ChangeEvent, useState } from 'react';
 import { Button } from '@/app/ui/Button';
 import { Card } from '@/app/ui/Card';
-import { PlusIcon } from '@/app/ui/icons/PlusIcon';
+import { AddIcon } from '@/app/ui/icons/AddIcon';
 import { TextArea } from '@/app/ui/TextArea';
 import { CloseIcon } from '@/app/ui/icons/CloseIcon';
 import { Chip } from '@/app/ui/Chip';
@@ -70,7 +70,7 @@ function AssumptionsConstraints({
             variant="secondary"
             ariaLabel="Add assumption or constraint"
           >
-            <PlusIcon />
+            <AddIcon fill="var(--on-secondary)" />
           </Button>
         </div>
         {assumptions.length > 0 ? (

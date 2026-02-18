@@ -12,15 +12,15 @@ export function PlanSummary({ exampleStepsCount }: PlanSummaryProps) {
       </div>
       <div className="flex items-center justify-between">
         <span>Total Operations</span>
-        <span>{exampleStepsCount} Steps</span>
+        <span className="font-medium">{exampleStepsCount} Steps</span>
       </div>
       <div className="flex items-center justify-between">
         <span>Estimated Cycle</span>
-        <span>28.4s</span>
+        <span className="font-medium">28.4s</span>
       </div>
       <div className="flex items-center justify-between">
         <span>Confidence Score</span>
-        <span>98.2%</span>
+        <span className="text-success font-medium">98.2%</span>
       </div>
     </Card>
   );

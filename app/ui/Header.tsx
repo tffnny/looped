@@ -25,7 +25,14 @@ export function Header() {
       </div>
       <div className="flex items-center">
         {currentView === 'plan' && (
-          <Button href="/" variant="tertiary" className="hover:bg-purple-900/8">
+          <Button
+            href="/"
+            variant="tertiary"
+            className="hover:bg-purple-900/8"
+            onClick={() =>
+              window.alert('oops this is currently for display only =D sorry')
+            }
+          >
             <div className="flex items-center gap-2">
               <LeftArrow />
               Edit Task

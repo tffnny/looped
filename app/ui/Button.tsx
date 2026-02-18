@@ -27,7 +27,7 @@ export function Button({
   ariaLabel,
   disabled,
 }: ButtonProps) {
-  const baseStyles = 'relative rounded-lg';
+  const baseStyles = 'relative rounded-lg flex items-center';
 
   // TODO: Remove variants no longer being used
   const variants = {

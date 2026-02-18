@@ -5,7 +5,7 @@ export function Diagnostics() {
   return (
     <Card variant="secondary" className="space-y-3">
       <div className="text-md-outline text-sm font-semibold uppercase">
-        Diagnostics{' '}
+        Diagnostics
       </div>
       <NoIssuesFound />
     </Card>

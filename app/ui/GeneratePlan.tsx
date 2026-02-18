@@ -11,7 +11,7 @@ type GeneratePlanProps = {
   assumptions: string[];
 };
 
-const ROBOT_MODELS = ['UR5-e', 'Kuka IIWA 7', 'Panda'];
+const ROBOT_MODELS = ['UR5-e', 'Kuka II WA-7', 'Panda'];
 const WORKSPACES = ['Kitchen', 'Living Room', 'Dining Room'];
 
 export function GeneratePlan({

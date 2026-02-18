@@ -2,56 +2,82 @@
 
 import { useState } from 'react';
 import { PlanSummary } from '@/app/plan/PlanSummary';
-import { WorkflowSteps } from '@/app/plan/WorkflowSteps';
+import { ReviewSteps } from '@/app/plan/ReviewSteps';
 import { Button } from '@/app/ui/Button';
 import { RefreshIcon } from '@/app/ui/icons/RefreshIcon';
-import { AlertIcon } from '@/app/ui/icons/AlertIcon';
+import { TimelineIcon } from '@/app/ui/icons/TimelineIcon';
 import { Diagnostics } from '@/app/plan/Diagnostics';
-import { SegmentedButtons } from '@/app/ui/SegmentedButtons';
+import { SegmentedToggleButton } from '@/app/ui/SegmentedToggleButton';
 import { PlayIcon } from '@/app/ui/icons/PlayIcon';
+import { Timeline } from '@/app/plan/Timeline';
+import type { Step } from '@/app/types';
 
-const EXAMPLE_STEPS = [
+const EXAMPLE_STEPS: Step[] = [
   {
-    Instruction: 'Move red block 1',
-    Assumption: 'Assumes the table is within reach',
+    instruction: 'Object Detection',
+    category: 'VISION',
+    parameters: {
+      object_color: 'red',
+      object_type: 'block',
+    },
+    description: 'Detect red block in RGB-D frame and estimate 6D pose.',
+    assumptions: ['Block is visible (occlusion < 40%).'],
   },
   {
-    Instruction: 'Move red block 2',
-    Assumption: 'Assumes the table is within reach',
+    instruction: 'Surface Detection',
+    category: 'VISION',
+    parameters: {
+      surface_type: 'table',
+    },
+    description: 'Identify table plane and compute placement region.',
+    assumptions: ['Placement area must be collision-free.'],
   },
   {
-    Instruction: 'Move red block 3',
-    Assumption: 'Assumes the table is within reach',
+    instruction: 'Compute Grasp Pose',
+    category: 'PLAN',
+    parameters: {
+      grasp_strategy: 'top_down',
+      clearance_cm: 5,
+      alignment: 'gravity_aligned',
+    },
+    description:
+      'Generate a feasible grasp pose relative to the detected object pose.',
+    assumptions: ['Gripper width compatible with block size.'],
   },
   {
-    Instruction: 'Locate red block',
-    Ambiguity: 'Multiple red blocks may exist',
-    Assumption: 'Assumes there is only one red block',
+    instruction: 'Plan Collision-Free Path to Grasp',
+    category: 'MOTION',
+    parameters: {
+      collision_check: true,
+    },
+    description: 'Plan collision-free trajectory to pre-grasp pose.',
+    assumptions: ['Must satisfy joint limits.', 'Avoid singularities.'],
   },
   {
-    Instruction: 'Grasp red block',
-  },
-  {
-    Instruction: 'Move red block',
-    Assumption: 'Assumes the table is within reach',
+    instruction: 'Open Gripper',
+    category: 'ACTUATE',
+    parameters: {
+      release_height: '2cm',
+      retreat_after_release: true,
+    },
+    description: 'Open the gripper to release the object.',
   },
 ];
 
 const BUTTON_SEGMENTS = [
-  { label: 'Critique', icon: <AlertIcon /> },
-  { label: 'Regenerate', icon: <RefreshIcon /> },
+  { label: 'Review Steps', icon: <RefreshIcon /> },
+  { label: 'Timeline', icon: <TimelineIcon /> },
 ];
 
 export default function Page() {
-  const [steps, setSteps] = useState([]);
-
-  const ambiguousSteps = EXAMPLE_STEPS.filter((step) => step.Ambiguity).length;
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
   const handleSegmentBtnClick = (index: number) => {
+    setActiveTabIndex(index);
     if (index === 0) {
-      console.log('Critique button clicked');
+      console.log('Review Steps button clicked');
     } else if (index === 1) {
-      console.log('Regenerate button clicked');
+      console.log('Timeline button clicked');
     }
   };
 
@@ -60,13 +86,18 @@ export default function Page() {
       <div className="col-span-2">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <SegmentedButtons
+            <SegmentedToggleButton
               segments={BUTTON_SEGMENTS}
+              activeTabIndex={activeTabIndex}
               onSegmentClick={handleSegmentBtnClick}
             />
           </div>
         </div>
-        <WorkflowSteps steps={EXAMPLE_STEPS} />
+        {activeTabIndex === 0 ? (
+          <ReviewSteps initialSteps={EXAMPLE_STEPS} />
+        ) : (
+          <Timeline />
+        )}
       </div>
       <div className="col-span-1 space-y-3">
         <PlanSummary exampleStepsCount={EXAMPLE_STEPS.length + 1} />
@@ -79,6 +110,22 @@ export default function Page() {
           <PlayIcon />
           Execute Robot Plan
         </Button>
+        <div className="flex items-center justify-between gap-4">
+          <Button
+            variant="secondary"
+            className="flex w-full justify-center py-3 text-sm font-semibold uppercase"
+            onClick={() => window.alert('WORKING ON IT!')}
+          >
+            Critique
+          </Button>
+          <Button
+            variant="secondary"
+            className="flex w-full justify-center py-3 text-sm font-semibold uppercase"
+            onClick={() => window.alert('WORKING ON IT!')}
+          >
+            Regenerate
+          </Button>
+        </div>
       </div>
     </main>
   );

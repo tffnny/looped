@@ -4,7 +4,7 @@ import clsx from 'clsx';
 type CardProps = {
   children: ReactNode;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'caution' | 'placeholder';
+  variant?: 'primary' | 'secondary' | 'placeholder';
 };
 
 export function Card({
@@ -18,7 +18,6 @@ export function Card({
   const variants = {
     primary: 'border border-md-outline-var bg-white',
     secondary: 'bg-surface-ctnr-high',
-    caution: 'border-2 border-yellow-300 bg-yellow-50',
     placeholder:
       'text-center text-sm border-2 border-dashed border-md-outline-var',
   };
